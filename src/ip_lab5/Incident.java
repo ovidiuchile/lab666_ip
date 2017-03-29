@@ -2,26 +2,24 @@ package ip_lab5;
 
 public class Incident {
 
-    private Integer gravitate;
-    private String descriere;
-    private String nume;
-    private boolean urgent;
+    private final Integer gravitate;
+    private final String descriere;
+    private final String nume;
+    private final boolean urgent;
     
     public Incident(Integer gravitate, String descriere, String nume, boolean urgent) {
-        if (validate(gravitate,descriere,nume)) {
-            this.gravitate = gravitate;
-            this.descriere = descriere;
-            this.nume = nume;
-            this.urgent = urgent;
-        }
-        else
-            throw new IllegalArgumentException();
-       
+        
+        validate(gravitate,descriere,nume); 
+        this.gravitate = gravitate;
+        this.descriere = descriere;
+        this.nume = nume;
+        this.urgent = urgent;
     }
     
-    public final boolean validate(Integer gravitate, String descriere, String nume)
+    private void validate(Integer gravitate, String descriere, String nume)
     {
-        return (descriere != null) && (gravitate >= 1 && gravitate <= 5) && (nume != null);
+        if((descriere == null) || (gravitate < 1 || gravitate > 5) || (nume == null))
+            throw new IllegalArgumentException();
     }
 
     public String getDescriere() {

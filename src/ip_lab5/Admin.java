@@ -12,8 +12,9 @@ public class Admin {
 	  return incident;
   }
 
-  public Notification createNotification(Incident incident, String phase, ArrayList<Canal> canale) {
-	  return null;
+  public Notification createNotification(String phase, ArrayList<Canal> canale) {
+	  Notification notificare = new Notification(phase, canale);
+	  return notificare;
   }
 
 }
