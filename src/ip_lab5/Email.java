@@ -32,5 +32,11 @@ public class Email extends Canal {
     public void setNume(String nume) {
         this.nume = nume;
     }
+    
+    public boolean trimite(String mesaj) {
+  	  System.out.println(this.nume + " [" +this.email + "]: " + mesaj);
+  	  return true;
+    }
+ 
   
 }

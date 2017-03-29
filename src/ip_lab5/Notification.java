@@ -10,7 +10,13 @@ public class Notification {
 	  this.phase = phase;
 	  this.canale = new ArrayList<Canal>(canale);
   }
-  public void send() {
+  
+  public void send(String mesaj) {
+	  for(Canal c : this.canale) {
+		  if(this.phase.equals("HotPhase"))
+			  c.trimite("HOT PHASE!!! " + mesaj);
+		  else c.trimite(mesaj);
+	  }
   }
 
 }
